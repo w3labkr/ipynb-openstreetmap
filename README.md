@@ -1,2 +1,2 @@
-# ipynb-gis
+# GIS
 Geographic Information System
