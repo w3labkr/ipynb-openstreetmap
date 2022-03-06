@@ -44,10 +44,27 @@ export packages
 (gis) pip freeze > requirements.txt
 ```
 
-## Nominatim Service
+## Reference
 
+- **Openstreetmap**
+The Rails application that powers OpenStreetMap
+<https://www.openstreetmap.org>
+
+- **Nominatim**
 Open Source search based on OpenStreetMap data
 
-Nominatim (from the Latin, 'by name') is a tool to search OpenStreetMap data by name and address (geocoding) and to generate synthetic addresses of OSM points (reverse geocoding). An instance with up-to-date data can be found at https://nominatim.openstreetmap.org. Nominatim is also used as one of the sources for the Search box on the OpenStreetMap home page.
+- **Open Source Routing Machine**
+Open Source Routing Machine - C++ backend
+<https://github.com/Project-OSRM/osrm-backend>
 
-- <https://nominatim.openstreetmap.org/ui/search.html>
+- **Open Source Routing Machine Frontend**
+Modular rewrite of the OSRM frontend using LRM
+<https://map.project-osrm.org>
+
+- **osmnx**
+OSMnx: Python for street networks. Retrieve, model, analyze, and visualize street networks and other spatial data from OpenStreetMap.
+<https://geoffboeing.com/publications/osmnx-complex-street-networks/>
+
+- **networkx**
+Network Analysis in Python
+<https://networkx.org/>
