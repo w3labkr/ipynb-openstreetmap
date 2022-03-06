@@ -1,0 +1,34 @@
+# EditorConfig is awesome: https://EditorConfig.org
+
+# top-most EditorConfig file
+root = true
+
+# Unix-style newlines with a newline ending every file
+[*]
+charset = utf-8
+end_of_line = lf
+insert_final_newline = true
+trim_trailing_whitespace = true
+indent_style = space
+
+# Matches multiple files with brace expansion notation
+[*.txt]
+end_of_line = crlf
+
+[*.{html, xhtml, phtml}]
+indent_size = 2
+
+[*.{css, scss, less}]
+indent_size = 2
+
+[*.{js, ts, jsx}]
+indent_size = 2
+
+[*.{json, xml}]
+indent_size = 4
+
+[*.{php, py}]
+indent_size = 4
+
+[*.{yml,yaml}]
+indent_size = 2
