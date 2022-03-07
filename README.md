@@ -1,4 +1,4 @@
-# GIS
+# Openstreetmap
 
 Geographic Information System
 
@@ -7,14 +7,14 @@ Geographic Information System
 To create a virtualenv for the Python version used with pyenv
 
 ```shell
-$ pyenv virtualenv 3.8.5 gis
+$ pyenv virtualenv 3.8.5 openstreetmap
 ```
 
 Sets a local application-specific Python version
 
 ```shell
-$ pyenv local gis
-$ pyenv shell gis
+$ pyenv local openstreetmap
+$ pyenv shell openstreetmap
 ```
 
 ## Dependencies
@@ -35,13 +35,13 @@ $ pyenv shell gis
 import packages
 
 ```shell
-(gis) pip install -r requirements.txt
+(openstreetmap) pip install -r requirements.txt
 ```
 
 export packages
 
 ```shell
-(gis) pip freeze > requirements.txt
+(openstreetmap) pip freeze > requirements.txt
 ```
 
 ## Reference
