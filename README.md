@@ -19,16 +19,20 @@ $ pyenv shell openstreetmap
 
 ## Dependencies
 
-- tqdm
 - numpy
 - pandas
 - geopandas
 - geopy
 - matplotlib
+- folium
 - networkx
 - osmnx
 - scikit-learn
-
+- igraph
+- descartes
+- wheel
+- gdal
+- rasterio
 
 ## Packages
 
@@ -68,3 +72,7 @@ OSMnx: Python for street networks. Retrieve, model, analyze, and visualize stree
 - **networkx**
 Network Analysis in Python
 <https://networkx.org/>
+
+- **osmnx-examples**
+Usage examples, demos, and tutorials for OSMnx.
+<https://github.com/gboeing/osmnx-examples>
