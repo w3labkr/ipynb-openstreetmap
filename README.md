@@ -50,29 +50,29 @@ export packages
 
 ## Reference
 
-- **Openstreetmap**
-The Rails application that powers OpenStreetMap
+- **Openstreetmap**  
+The Rails application that powers OpenStreetMap  
 <https://www.openstreetmap.org>
 
-- **Nominatim**
-Open Source search based on OpenStreetMap data
+- **Nominatim**  
+Open Source search based on OpenStreetMap data  
 
-- **Open Source Routing Machine**
-Open Source Routing Machine - C++ backend
+- **Open Source Routing Machine**  
+Open Source Routing Machine - C++ backend  
 <https://github.com/Project-OSRM/osrm-backend>
 
-- **Open Source Routing Machine Frontend**
-Modular rewrite of the OSRM frontend using LRM
+- **Open Source Routing Machine Frontend**  
+Modular rewrite of the OSRM frontend using LRM  
 <https://map.project-osrm.org>
 
-- **osmnx**
-OSMnx: Python for street networks. Retrieve, model, analyze, and visualize street networks and other spatial data from OpenStreetMap.
+- **osmnx**  
+OSMnx: Python for street networks. Retrieve, model, analyze, and visualize street networks and other spatial data from OpenStreetMap.  
 <https://geoffboeing.com/publications/osmnx-complex-street-networks/>
 
-- **networkx**
-Network Analysis in Python
+- **networkx**  
+Network Analysis in Python  
 <https://networkx.org/>
 
-- **osmnx-examples**
-Usage examples, demos, and tutorials for OSMnx.
+- **osmnx-examples**  
+Usage examples, demos, and tutorials for OSMnx.  
 <https://github.com/gboeing/osmnx-examples>

@@ -15,6 +15,9 @@ indent_style = space
 [*.txt]
 end_of_line = crlf
 
+[*.md]
+trim_trailing_whitespace = false
+
 [*.{html, xhtml, phtml}]
 indent_size = 2
 
