@@ -77,3 +77,7 @@ Network Analysis in Python
 - **osmnx-examples**  
 Usage examples, demos, and tutorials for OSMnx.  
 <https://github.com/gboeing/osmnx-examples>
+
+## License
+
+This software is licensed under the [MIT LICENSE](LICENSE).
