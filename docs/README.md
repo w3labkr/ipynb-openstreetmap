@@ -51,3 +51,7 @@
 ### utils_graph
 
 - [graph_to_gdfs](https://w3labkr.github.io/ipynb-openstreetmap/osmnx/utils_graph/graph_to_gdfs.html)
+
+## License
+
+This software is licensed under the [MIT LICENSE](LICENSE).
