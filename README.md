@@ -2,6 +2,10 @@
 
 Various examples using OpenStreetMap
 
+## Demo
+
+- <https://w3labkr.github.io/ipynb-openstreetmap/>
+
 ## Environment
 
 To create a virtualenv for the Python version used with pyenv
