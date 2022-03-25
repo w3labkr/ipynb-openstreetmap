@@ -1,6 +1,6 @@
 # Openstreetmap
 
-Various examples using OpenStreetMap
+Usage examples and demos for Openstreetmap.
 
 ## Environment
 
