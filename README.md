@@ -1,6 +1,6 @@
 # Openstreetmap
 
-Geographic Information System
+Various examples using OpenStreetMap
 
 ## Environment
 
@@ -56,6 +56,7 @@ The Rails application that powers OpenStreetMap
 
 - **Nominatim**  
 Open Source search based on OpenStreetMap data  
+<https://nominatim.openstreetmap.org/ui/search.html>
 
 - **Open Source Routing Machine**  
 Open Source Routing Machine - C++ backend  
