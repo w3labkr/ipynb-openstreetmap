@@ -1,5 +1,3 @@
-# openstreetmap
-
 ## networkx
 
 - [closeness_centrality](https://w3labkr.github.io/ipynb-openstreetmap/networkx/closeness_centrality.html)
