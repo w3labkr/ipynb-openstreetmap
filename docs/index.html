@@ -4,7 +4,30 @@
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="x-dns-prefetch-control" content="on">
   <meta name="viewport" content="width=1280">
+
+  <!--
+    Using dns-prefetch
+
+    DNS-prefetch is an attempt to resolve domain names before resources get requested.
+    This could be a file loaded later or link target a user tries to follow.
+
+    https://developer.mozilla.org/en-US/docs/Web/Performance/dns-prefetch
+  -->
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+  <link rel="preconnect" href="https://ajax.googleapis.com" crossorigin>
+  <link rel="dns-prefetch" href="https://ajax.googleapis.com">
+
+  <!--
+    Bootstrap Icons
+    Official open source SVG icon library for Bootstrap.
+
+    https://icons.getbootstrap.com/
+  -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
+
   <title>openstreetmap</title>
 
   <style>
@@ -131,7 +154,9 @@ a:hover {
     <header class="site-header">
       <h1 class="site-title">W3LabKr</h1>
       <p class="site-description">Openstreetmap</p>
-      <a href="https://github.com/w3labkr/ipynb-openstreetmap" target="_blank">Github</a>
+      <a href="https://github.com/w3labkr/ipynb-openstreetmap" target="_blank">
+        <i class="bi bi-box-arrow-up-right"></i> Github
+      </a>
     </header>
 
     <div id="page-content" class="site-content">
@@ -198,7 +223,7 @@ a:hover {
   <script>
   var WebFontConfig = {
     google: {
-      families: ['Noto Sans KR:100'],
+      families: ['Noto Sans KR:100,400,700'],
       text: ' !"#$%&\'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_`abcdefghijklmnopqrstuvwxyz{|}~'
     },
     timeout: 2000 // Set the timeout to two seconds
