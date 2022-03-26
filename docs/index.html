@@ -1,82 +1,108 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=1280">
   <title>openstreetmap</title>
+
   <style>
 * {
-  -webkit-box-sizing: border-box;
-     -moz-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
   margin: 0;
+  font-weight: 100;
+  font-family: 'Noto Sans KR', sans-serif;
 }
 html,
 body {
   width: 100%;
   height: 100%;
 }
-iframe {
+a {
+  text-decoration: none;
+}
+a:focus,
+a:active,
+a:hover {
+  text-decoration: underline;
+}
+.site {
   width: 100%;
   height: 100%;
 }
-.header {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -moz-box;
+.site-header {
   display: flex;
-  -webkit-box-align: center;
-  -webkit-align-items: center;
-     -moz-box-align: center;
-          align-items: center;
-  -webkit-box-pack: justify;
-  -webkit-justify-content: space-between;
-     -moz-box-pack: justify;
-          justify-content: space-between;
+  align-items: center;
+  justify-content: space-between;
   height: 50px;
   padding: 0 15px;
   border-bottom: 1px solid #dddddd;
 }
-.content {
-  height: -webkit-calc(100% - 90px);
-  height: -moz-calc(100% - 90px);
-  height: calc(100% - 90px);
+.site-title {
+  font-size: 18px;
+}
+.site-content {
+  height: calc(100% - 50px);
   overflow: hidden;
 }
-.content:after {
+.site-content:after {
   display: block;
   clear: both;
   content: '';
 }
-.aside {
+.site-sidebar {
   float: left;
   width: 250px;
   height: 100%;
   padding: 15px;
   overflow-y: scroll;
 }
-.aside h2 {
+.site-sidebar h2 {
   margin-bottom: 15px;
 }
-.nav {
-  margin-bottom: 15px;
+.site-nav {
+  word-break: break-all;
 }
-.nav h3 {
-  margin-bottom: 5px;
+.site-nav ul {
+  padding-left: 0;
+  list-style: none;
 }
-.nav-item {
-  margin-bottom: 15px;
+.site-nav > ul {
+  padding-left: 0;
 }
-.main {
+.site-nav > ul > li > span {
+  font-size: 24px;
+}
+.site-nav > ul > li + li {
+  margin-top: 15px;
+}
+.site-nav .nav-list ul li {
+  position: relative;
+}
+.site-nav .nav-list ul li.nav-text {
+  margin-top: 10px;
+}
+.site-nav .nav-list ul li.nav-item {
+  padding-left: 20px;
+}
+.site-nav .nav-list ul li.nav-item:before {
+  position: absolute;
+  top: 0;
+  left: 10px;
+  display: inline-block;
+  content: '-';
+}
+.site-nav .nav-list ul li.nav-item.active a {
+  color: rgb(255 0 0);
+}
+.site-main {
   position: relative;
   float: left;
-  width: -webkit-calc(100% - 250px);
-  width: -moz-calc(100% - 250px);
   width: calc(100% - 250px);
   height: 100%;
 }
-.main:before {
+.site-main:before {
   position: absolute;
   top: 0;
   left: 0;
@@ -84,23 +110,6 @@ iframe {
   height: 100%;
   background-color: #dddddd;
   content: '';
-}
-.footer {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -moz-box;
-  display: flex;
-  -webkit-box-align: center;
-  -webkit-align-items: center;
-     -moz-box-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-     -moz-box-pack: center;
-          justify-content: center;
-  height: 40px;
-  padding: 0 15px;
-  border-top: 1px solid #dddddd;
 }
   </style>
 
@@ -113,131 +122,117 @@ iframe {
 
     gtag('config', 'UA-178473923-2');
   </script>
+
 </head>
+
 <body>
+  <div id="page" class="site">
 
-  <header class="header">
-    <h1>W3LabKr</h1>
-    <p>Openstreetmap</p>
+    <header class="site-header">
+      <h1 class="site-title">W3LabKr</h1>
+      <p class="site-description">Openstreetmap</p>
+      <a href="https://github.com/w3labkr/ipynb-openstreetmap" target="_blank">Github</a>
+    </header>
 
-    <a href="https://github.com/w3labkr/ipynb-openstreetmap" target="_blank">Github</a>
-  </header>
+    <div id="page-content" class="site-content">
+      <aside id="secondary" class="site-sidebar">
 
-  <div class="content">
-    <aside class="aside">
-      <h2>Contents</h2>
-
-      <nav class="nav">
-        <h3>networkx</h3>
-
-        <div class="nav-item">
-          <ul>
-            <li><a class="nav-link" href="https://w3labkr.github.io/ipynb-openstreetmap/networkx/closeness_centrality.html">closeness_centrality</a></li>
-            <li><a class="nav-link" href="https://w3labkr.github.io/ipynb-openstreetmap/networkx/shortest_path.html">shortest_path</a></li>
+        <nav id="page-nav" class="site-nav">
+          <ul class="nav-list">
+            <li class="nav-item">
+              <span>networkx</span>
+              <ul>
+                <li class="nav-text"></li>
+                <li class="nav-item"><a href="networkx/closeness_centrality.html">closeness_centrality</a></li>
+                <li class="nav-item"><a href="networkx/shortest_path.html">shortest_path</a></li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <span>osmnx</span>
+              <ul>
+                <li class="nav-text">distance</li>
+                <li class="nav-item"><a href="osmnx/distance/k_shortest_paths.html">k_shortest_paths</a></li>
+                <li class="nav-item"><a href="osmnx/distance/nearest_nodes.html">nearest_nodes</a></li>
+                <li class="nav-item"><a href="osmnx/distance/shortest_path.html">shortest_path</a></li>
+                <li class="nav-text">folium</li>
+                <li class="nav-item"><a href="osmnx/folium/plot_graph_folium.html">plot_graph_folium</a></li>
+                <li class="nav-item"><a href="osmnx/folium/plot_route_folium.html">plot_route_folium</a></li>
+                <li class="nav-text">geocoder</li>
+                <li class="nav-item"><a href="osmnx/geocoder/geocode.html">geocode</a></li>
+                <li class="nav-item"><a href="osmnx/geocoder/geocode_to_gdf.html">geocode_to_gdf</a></li>
+                <li class="nav-text">graph</li>
+                <li class="nav-item"><a href="osmnx/graph/graph_from_address.html">graph_from_address</a></li>
+                <li class="nav-item"><a href="osmnx/graph/graph_from_bbox.html">graph_from_bbox</a></li>
+                <li class="nav-item"><a href="osmnx/graph/graph_from_place.html">graph_from_place</a></li>
+                <li class="nav-item"><a href="osmnx/graph/graph_from_point.html">graph_from_point</a></li>
+                <li class="nav-text">plot</li>
+                <li class="nav-item"><a href="osmnx/plot/get_edge_colors_by_attr.html">get_edge_colors_by_attr</a></li>
+                <li class="nav-item"><a href="osmnx/plot/plot_graph.html">plot_graph</a></li>
+                <li class="nav-item"><a href="osmnx/plot/plot_graph_route.html">plot_graph_route</a></li>
+                <li class="nav-item"><a href="osmnx/plot/plot_graph_routes.html">plot_graph_routes</a></li>
+                <li class="nav-text">projection</li>
+                <li class="nav-item"><a href="osmnx/projection/project_gdf.html">project_gdf</a></li>
+                <li class="nav-text">speed</li>
+                <li class="nav-item"><a href="osmnx/speed/add_edge_speeds.html">add_edge_speeds</a></li>
+                <li class="nav-item"><a href="osmnx/speed/add_edge_travel_times.html">add_edge_travel_times</a></li>
+                <li class="nav-text">stats</li>
+                <li class="nav-item"><a href="osmnx/stats/basic_stats.html">basic_stats</a></li>
+                <li class="nav-text">utils_graph</li>
+                <li class="nav-item"><a href="osmnx/utils_graph/graph_to_gdfs.html">graph_to_gdfs</a></li>
+              </ul>
+            </li>
           </ul>
-        </div>
-      </nav>
 
-      <nav class="nav">
-        <h3>osmnx</h3>
+        </nav>
+      </aside>
 
-        <div class="nav-item">
-          <span>distance</span>
-          <ul>
-            <li><a class="nav-link" href="https://w3labkr.github.io/ipynb-openstreetmap/osmnx/distance/k_shortest_paths.html">k_shortest_paths</a></li>
-            <li><a class="nav-link" href="https://w3labkr.github.io/ipynb-openstreetmap/osmnx/distance/nearest_nodes.html">nearest_nodes</a></li>
-            <li><a class="nav-link" href="https://w3labkr.github.io/ipynb-openstreetmap/osmnx/distance/shortest_path.html">shortest_path</a></li>
-          </ul>
-        </div>
+      <main id="primary" class="site-main">
+        <iframe id="iframe" src="networkx/closeness_centrality.html" frameborder="0" style="width:100%;height:100%;"></iframe>
+      </main>
+    </div>
 
-        <div class="nav-item">
-          <span>folium</span>
-          <ul>
-            <li><a class="nav-link" href="https://w3labkr.github.io/ipynb-openstreetmap/osmnx/folium/plot_graph_folium.html">plot_graph_folium</a></li>
-            <li><a class="nav-link" href="https://w3labkr.github.io/ipynb-openstreetmap/osmnx/folium/plot_route_folium.html">plot_route_folium</a></li>
-          </ul>
-        </div>
+    <footer class="site-footer"></footer>
+  </div><!-- #site -->
 
-        <div class="nav-item">
-          <span>geocoder</span>
-          <ul>
-            <li><a class="nav-link" href="https://w3labkr.github.io/ipynb-openstreetmap/osmnx/geocoder/geocode.html">geocode</a></li>
-            <li><a class="nav-link" href="https://w3labkr.github.io/ipynb-openstreetmap/osmnx/geocoder/geocode_to_gdf.html">geocode_to_gdf</a></li>
-          </ul>
-        </div>
-
-        <div class="nav-item">
-          <span>graph</span>
-          <ul>
-            <li><a class="nav-link" href="https://w3labkr.github.io/ipynb-openstreetmap/osmnx/graph/graph_from_address.html">graph_from_address</a></li>
-            <li><a class="nav-link" href="https://w3labkr.github.io/ipynb-openstreetmap/osmnx/graph/graph_from_bbox.html">graph_from_bbox</a></li>
-            <li><a class="nav-link" href="https://w3labkr.github.io/ipynb-openstreetmap/osmnx/graph/graph_from_place.html">graph_from_place</a></li>
-            <li><a class="nav-link" href="https://w3labkr.github.io/ipynb-openstreetmap/osmnx/graph/graph_from_point.html">graph_from_point</a></li>
-          </ul>
-        </div>
-
-        <div class="nav-item">
-          <span>plot</span>
-          <ul>
-            <li><a class="nav-link" href="https://w3labkr.github.io/ipynb-openstreetmap/osmnx/plot/get_edge_colors_by_attr.html">get_edge_colors_by_attr</a></li>
-            <li><a class="nav-link" href="https://w3labkr.github.io/ipynb-openstreetmap/osmnx/plot/plot_graph.html">plot_graph</a></li>
-            <li><a class="nav-link" href="https://w3labkr.github.io/ipynb-openstreetmap/osmnx/plot/plot_graph_route.html">plot_graph_route</a></li>
-            <li><a class="nav-link" href="https://w3labkr.github.io/ipynb-openstreetmap/osmnx/plot/plot_graph_routes.html">plot_graph_routes</a></li>
-          </ul>
-        </div>
-
-        <div class="nav-item">
-          <span>projection</span>
-          <ul>
-            <li><a class="nav-link" href="https://w3labkr.github.io/ipynb-openstreetmap/osmnx/projection/project_gdf.html">project_gdf</a></li>
-          </ul>
-        </div>
-
-        <div class="nav-item">
-          <span>speed</span>
-          <ul>
-            <li><a class="nav-link" href="https://w3labkr.github.io/ipynb-openstreetmap/osmnx/speed/add_edge_speeds.html">add_edge_speeds</a></li>
-            <li><a class="nav-link" href="https://w3labkr.github.io/ipynb-openstreetmap/osmnx/speed/add_edge_travel_times.html">add_edge_travel_times</a></li>
-          </ul>
-        </div>
-
-        <div class="nav-item">
-          <span>stats</span>
-          <ul>
-            <li><a class="nav-link" href="https://w3labkr.github.io/ipynb-openstreetmap/osmnx/stats/basic_stats.html">basic_stats</a></li>
-          </ul>
-        </div>
-
-        <div class="nav-item">
-          <span>utils_graph</span>
-          <ul>
-            <li><a class="nav-link" href="https://w3labkr.github.io/ipynb-openstreetmap/osmnx/utils_graph/graph_to_gdfs.html">graph_to_gdfs</a></li>
-          </ul>
-        </div>
-
-      </nav>
-    </aside>
-
-    <main class="main">
-      <iframe id="iframe" src="https://w3labkr.github.io/ipynb-openstreetmap/networkx/closeness_centrality.html" frameborder="0"></iframe>
-    </main>
-  </div>
-
-  <footer class="footer">
-    This document is licensed under the &nbsp;<a href="https://w3labkr.github.io/ipynb-openstreetmap/LICENSE.txt">MIT LICENSE</a>.
-  </footer>
+  <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js"></script>
+  <script>
+  var WebFontConfig = {
+    google: {
+      families: ['Noto Sans KR:100'],
+      text: ' !"#$%&\'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_`abcdefghijklmnopqrstuvwxyz{|}~'
+    },
+    timeout: 2000 // Set the timeout to two seconds
+  };
+  WebFont.load(WebFontConfig);
+  </script>
 
   <script>
     var iframe = document.getElementById('iframe');
-    var navLinks = document.querySelectorAll('.nav-link');
-    navLinks.forEach(function(navLink) {
-      navLink.addEventListener('click', function(e) {
+    var anchors = document.querySelectorAll('#page-nav a');
+    anchors.forEach(function(anchor) {
+      anchor.addEventListener('click', function(e) {
         e.preventDefault();
-        iframe.src = this.href;
+
+        var target = this;
+        var parent = target.parentNode;
+        var siblings = [].slice.call(parent.parentNode.children).filter(function (sibling) {
+          return sibling !== target;
+        });
+
+        siblings.forEach(function(sibling) {
+          sibling.classList.remove('active');
+        });
+
+        parent.classList.add('active');
+
+        var origin = '';
+        var href = target.getAttribute('href');
+        iframe.src = origin.concat(href);
         return false;
       });
     })
   </script>
 
 </body>
+
 </html>
