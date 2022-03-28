@@ -5,15 +5,13 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta http-equiv="x-dns-prefetch-control" content="on">
-  <meta name="viewport" content="width=1280">
+  <meta name="viewport" content="width=1024">
 
   <!--
-    Using dns-prefetch
+  DNS-prefetch is an attempt to resolve domain names before resources get requested.
+  This could be a file loaded later or link target a user tries to follow.
 
-    DNS-prefetch is an attempt to resolve domain names before resources get requested.
-    This could be a file loaded later or link target a user tries to follow.
-
-    https://developer.mozilla.org/en-US/docs/Web/Performance/dns-prefetch
+  https://developer.mozilla.org/en-US/docs/Web/Performance/dns-prefetch
   -->
   <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
   <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
@@ -21,26 +19,26 @@
   <link rel="dns-prefetch" href="https://ajax.googleapis.com">
 
   <!--
-    Bootstrap Icons
-    Official open source SVG icon library for Bootstrap.
+  A modern alternative to CSS resets
 
-    https://icons.getbootstrap.com/
+  https://necolas.github.io/normalize.css/
+  -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.css">
+
+  <!--
+  Official open source SVG icon library for Bootstrap.
+
+  https://icons.getbootstrap.com/
   -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
 
-  <title>openstreetmap</title>
+  <title>ipynb-openstreetmap</title>
 
   <style>
 * {
   box-sizing: border-box;
-  margin: 0;
   font-weight: 100;
   font-family: 'Noto Sans KR', sans-serif;
-}
-html,
-body {
-  width: 100%;
-  height: 100%;
 }
 a {
   text-decoration: none;
@@ -51,14 +49,14 @@ a:hover {
   text-decoration: underline;
 }
 .site {
-  width: 100%;
-  height: 100%;
+  width: 100vw;
+  height: 100vh;
 }
 .site-header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 50px;
+  height: 60px;
   padding: 0 15px;
   border-bottom: 1px solid #dddddd;
 }
@@ -66,8 +64,7 @@ a:hover {
   font-size: 18px;
 }
 .site-content {
-  height: calc(100% - 50px);
-  overflow: hidden;
+  height: calc(100% - 60px);
 }
 .site-content:after {
   display: block;
@@ -76,63 +73,51 @@ a:hover {
 }
 .site-sidebar {
   float: left;
-  width: 250px;
   height: 100%;
-  padding: 15px;
   overflow-y: scroll;
 }
-.site-sidebar h2 {
-  margin-bottom: 15px;
+.site-sidebar.sidebar-1 {
+  width: 200px;
+  padding: 15px;
 }
-.site-nav {
-  word-break: break-all;
-}
-.site-nav ul {
-  padding-left: 0;
-  list-style: none;
-}
-.site-nav > ul {
-  padding-left: 0;
-}
-.site-nav > ul > li > span {
-  font-size: 24px;
-}
-.site-nav > ul > li + li {
-  margin-top: 15px;
-}
-.site-nav .nav-list ul li {
-  position: relative;
-}
-.site-nav .nav-list ul li.nav-text {
-  margin-top: 10px;
-}
-.site-nav .nav-list ul li.nav-item {
-  padding-left: 20px;
-}
-.site-nav .nav-list ul li.nav-item:before {
-  position: absolute;
-  top: 0;
-  left: 10px;
-  display: inline-block;
-  content: '-';
-}
-.site-nav .nav-list ul li.nav-item.active a {
-  color: rgb(255 0 0);
+.site-sidebar.sidebar-2 {
+  width: 200px;
+  padding: 15px;
+  border-left: 1px solid #dddddd;
 }
 .site-main {
-  position: relative;
   float: left;
-  width: calc(100% - 250px);
+  width: calc(100% - 400px);
   height: 100%;
+  border-left: 1px solid #dddddd;
 }
-.site-main:before {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 1px;
-  height: 100%;
-  background-color: #dddddd;
-  content: '';
+.site-sidebar .sidebar-list {
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-left: 20px;
+  word-break: break-all;
+  list-style: none;
+}
+.site-sidebar .sidebar-list li.sidebar-text {
+  margin-top: 20px;
+  margin-left: -20px;
+}
+.site-sidebar .sidebar-list li.sidebar-item {
+  margin-top: 10px;
+}
+.site-sidebar .sidebar-list li.sidebar-item:before {
+  position: relative;
+  top: 2px;
+  display: inline-block;
+  margin-right: 5px;
+  margin-left: -20px;
+  content: '\02022';
+}
+.site-sidebar .sidebar-list li:first-child {
+  margin-top: 0;
+}
+.site-sidebar .sidebar-list li.sidebar-item.active a {
+  color: rgb(255 0 0);
 }
   </style>
 
@@ -140,7 +125,10 @@ a:hover {
   <script async src="https://www.googletagmanager.com/gtag/js?id=UA-178473923-2"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
     gtag('js', new Date());
 
     gtag('config', 'UA-178473923-2');
@@ -151,113 +139,217 @@ a:hover {
 <body>
   <div id="page" class="site">
 
-    <header class="site-header">
+    <header id="page-header" class="site-header">
       <h1 class="site-title">W3LabKr</h1>
-      <p class="site-description">Openstreetmap</p>
-      <a href="https://github.com/w3labkr/ipynb-openstreetmap" target="_blank">
-        <i class="bi bi-box-arrow-up-right"></i> Github
-      </a>
+      <nav id="page-nav" class="site-nav">
+        <a href="https://github.com/w3labkr/ipynb-openstreetmap" target="_blank">
+          <i class="bi bi-box-arrow-up-right"></i> Github
+        </a>
+      </nav>
     </header>
 
     <div id="page-content" class="site-content">
-      <aside id="secondary" class="site-sidebar">
+      <aside id="secondary" class="site-sidebar sidebar-1">
+        <ul class="sidebar-list">
+          <li class="sidebar-item active"><a href="#networkx">networkx</a></li>
+          <li class="sidebar-item"><a href="#osmnx">osmnx</a></li>
+        </ul>
+      </aside>
 
-        <nav id="page-nav" class="site-nav">
-          <ul class="nav-list">
-            <li class="nav-item">
-              <span>networkx</span>
-              <ul>
-                <li class="nav-text"></li>
-                <li class="nav-item"><a href="networkx/closeness_centrality.html">closeness_centrality</a></li>
-                <li class="nav-item"><a href="networkx/shortest_path.html">shortest_path</a></li>
-              </ul>
-            </li>
-            <li class="nav-item">
-              <span>osmnx</span>
-              <ul>
-                <li class="nav-text">distance</li>
-                <li class="nav-item"><a href="osmnx/distance/k_shortest_paths.html">k_shortest_paths</a></li>
-                <li class="nav-item"><a href="osmnx/distance/nearest_nodes.html">nearest_nodes</a></li>
-                <li class="nav-item"><a href="osmnx/distance/shortest_path.html">shortest_path</a></li>
-                <li class="nav-text">folium</li>
-                <li class="nav-item"><a href="osmnx/folium/plot_graph_folium.html">plot_graph_folium</a></li>
-                <li class="nav-item"><a href="osmnx/folium/plot_route_folium.html">plot_route_folium</a></li>
-                <li class="nav-text">geocoder</li>
-                <li class="nav-item"><a href="osmnx/geocoder/geocode.html">geocode</a></li>
-                <li class="nav-item"><a href="osmnx/geocoder/geocode_to_gdf.html">geocode_to_gdf</a></li>
-                <li class="nav-text">graph</li>
-                <li class="nav-item"><a href="osmnx/graph/graph_from_address.html">graph_from_address</a></li>
-                <li class="nav-item"><a href="osmnx/graph/graph_from_bbox.html">graph_from_bbox</a></li>
-                <li class="nav-item"><a href="osmnx/graph/graph_from_place.html">graph_from_place</a></li>
-                <li class="nav-item"><a href="osmnx/graph/graph_from_point.html">graph_from_point</a></li>
-                <li class="nav-text">plot</li>
-                <li class="nav-item"><a href="osmnx/plot/get_edge_colors_by_attr.html">get_edge_colors_by_attr</a></li>
-                <li class="nav-item"><a href="osmnx/plot/plot_graph.html">plot_graph</a></li>
-                <li class="nav-item"><a href="osmnx/plot/plot_graph_route.html">plot_graph_route</a></li>
-                <li class="nav-item"><a href="osmnx/plot/plot_graph_routes.html">plot_graph_routes</a></li>
-                <li class="nav-text">projection</li>
-                <li class="nav-item"><a href="osmnx/projection/project_gdf.html">project_gdf</a></li>
-                <li class="nav-text">speed</li>
-                <li class="nav-item"><a href="osmnx/speed/add_edge_speeds.html">add_edge_speeds</a></li>
-                <li class="nav-item"><a href="osmnx/speed/add_edge_travel_times.html">add_edge_travel_times</a></li>
-                <li class="nav-text">stats</li>
-                <li class="nav-item"><a href="osmnx/stats/basic_stats.html">basic_stats</a></li>
-                <li class="nav-text">utils_graph</li>
-                <li class="nav-item"><a href="osmnx/utils_graph/graph_to_gdfs.html">graph_to_gdfs</a></li>
-              </ul>
-            </li>
-          </ul>
-
-        </nav>
+      <aside id="tertiary" class="site-sidebar sidebar-2">
+        <ul id="networkx" class="sidebar-list active">
+          <li class="sidebar-item active"><a href="networkx/closeness_centrality.html">closeness_centrality</a></li>
+          <li class="sidebar-item"><a href="networkx/shortest_path.html">shortest_path</a></li>
+        </ul>
+        <ul id="osmnx" class="sidebar-list" style="display:none;">
+          <li class="sidebar-text">distance</li>
+          <li class="sidebar-item"><a href="osmnx/distance/k_shortest_paths.html">k_shortest_paths</a></li>
+          <li class="sidebar-item"><a href="osmnx/distance/nearest_nodes.html">nearest_nodes</a></li>
+          <li class="sidebar-item"><a href="osmnx/distance/shortest_path.html">shortest_path</a></li>
+          <li class="sidebar-text">folium</li>
+          <li class="sidebar-item"><a href="osmnx/folium/plot_graph_folium.html">plot_graph_folium</a></li>
+          <li class="sidebar-item"><a href="osmnx/folium/plot_route_folium.html">plot_route_folium</a></li>
+          <li class="sidebar-text">geocoder</li>
+          <li class="sidebar-item"><a href="osmnx/geocoder/geocode.html">geocode</a></li>
+          <li class="sidebar-item"><a href="osmnx/geocoder/geocode_to_gdf.html">geocode_to_gdf</a></li>
+          <li class="sidebar-text">graph</li>
+          <li class="sidebar-item"><a href="osmnx/graph/graph_from_address.html">graph_from_address</a></li>
+          <li class="sidebar-item"><a href="osmnx/graph/graph_from_bbox.html">graph_from_bbox</a></li>
+          <li class="sidebar-item"><a href="osmnx/graph/graph_from_place.html">graph_from_place</a></li>
+          <li class="sidebar-item"><a href="osmnx/graph/graph_from_point.html">graph_from_point</a></li>
+          <li class="sidebar-text">plot</li>
+          <li class="sidebar-item"><a href="osmnx/plot/get_edge_colors_by_attr.html">get_edge_colors_by_attr</a></li>
+          <li class="sidebar-item"><a href="osmnx/plot/plot_graph.html">plot_graph</a></li>
+          <li class="sidebar-item"><a href="osmnx/plot/plot_graph_route.html">plot_graph_route</a></li>
+          <li class="sidebar-item"><a href="osmnx/plot/plot_graph_routes.html">plot_graph_routes</a></li>
+          <li class="sidebar-text">projection</li>
+          <li class="sidebar-item"><a href="osmnx/projection/project_gdf.html">project_gdf</a></li>
+          <li class="sidebar-text">speed</li>
+          <li class="sidebar-item"><a href="osmnx/speed/add_edge_speeds.html">add_edge_speeds</a></li>
+          <li class="sidebar-item"><a href="osmnx/speed/add_edge_travel_times.html">add_edge_travel_times</a></li>
+          <li class="sidebar-text">stats</li>
+          <li class="sidebar-item"><a href="osmnx/stats/basic_stats.html">basic_stats</a></li>
+          <li class="sidebar-text">utils_graph</li>
+          <li class="sidebar-item"><a href="osmnx/utils_graph/graph_to_gdfs.html">graph_to_gdfs</a></li>
+        </ul>
       </aside>
 
       <main id="primary" class="site-main">
-        <iframe id="iframe" src="networkx/closeness_centrality.html" frameborder="0" style="width:100%;height:100%;"></iframe>
+        <div id="progress-bar"></div>
+        <iframe id="iframe" src="networkx/closeness_centrality.html" frameborder="0" scrolling="yes" style="width:100%;height:100%;"></iframe>
       </main>
     </div>
 
     <footer class="site-footer"></footer>
   </div><!-- #site -->
 
+  <!--
+  Web Font Loader gives you added control when using linked fonts via @font-face.
+
+  https://github.com/typekit/webfontloader
+  -->
   <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js"></script>
   <script>
-  var WebFontConfig = {
-    google: {
-      families: ['Noto Sans KR:100,400,700'],
-      text: ' !"#$%&\'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_`abcdefghijklmnopqrstuvwxyz{|}~'
-    },
-    timeout: 2000 // Set the timeout to two seconds
-  };
-  WebFont.load(WebFontConfig);
+    var WebFontConfig = {
+      google: {
+        families: ['Noto Sans KR:100'],
+        text: ' !"#$%&\'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_`abcdefghijklmnopqrstuvwxyz{|}~'
+      }
+    };
+    WebFont.load(WebFontConfig);
   </script>
 
+  <!--
+  GreenSock's GSAP JavaScript animation library (including Draggable).
+
+  https://github.com/greensock/GSAP
+  -->
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.9.1/dist/gsap.min.js"></script>
   <script>
-    var iframe = document.getElementById('iframe');
-    var anchors = document.querySelectorAll('#page-nav a');
-    anchors.forEach(function(anchor) {
-      anchor.addEventListener('click', function(e) {
-        e.preventDefault();
+var _progressStart = gsap.timeline({
+  paused: true,
+  repeat: -1,
+  repeatDelay: 1,
+  defaults: {
+    duration: 1,
+    ease: 'power2.inOut',
+  },
+});
+var _progressComplete = gsap.timeline({
+  paused: true,
+  defaults: {
+    duration: 1,
+    ease: 'power2.inOut',
+  },
+});
 
-        var target = this;
-        var parent = target.parentNode;
-        var siblings = [].slice.call(parent.parentNode.children).filter(function (sibling) {
-          return sibling !== target;
-        });
+sidebarHandler();
+iframeHandler();
+progressHandler();
 
-        siblings.forEach(function(sibling) {
-          sibling.classList.remove('active');
-        });
+function sidebarHandler() {
+  var anchors = document.querySelectorAll('#secondary a, #tertiary a');
+  anchors.forEach(function (anchor) {
+    if (!!anchor.target && anchor.target !== '_self') {
+      return;
+    }
+    anchor.addEventListener('click', function (e) {
+      e.preventDefault();
 
-        parent.classList.add('active');
+      setActiveClass(this);
 
-        var origin = '';
-        var href = target.getAttribute('href');
-        iframe.src = origin.concat(href);
-        return false;
-      });
-    })
+      !!this.hash && setTertiary(this);
+      !this.hash && setIframe(this);
+
+      return false;
+    });
+  });
+}
+
+function setActiveClass(target) {
+  var parentNode = target.parentNode;
+  var siblings = [].slice.call(parentNode.parentNode.children).filter(function (sibling) {
+    return sibling !== target;
+  });
+
+  siblings.forEach(function (sibling) {
+    sibling.classList.remove('active');
+  });
+
+  parentNode.classList.add('active');
+}
+
+function setTertiary(target) {
+  var hashNode = document.querySelector(target.hash);
+  var siblings = [].slice.call(hashNode.parentNode.children).filter(function (sibling) {
+    return sibling !== hashNode;
+  });
+
+  siblings.forEach(function (sibling) {
+    sibling.style.display = 'none';
+  });
+
+  hashNode.style.display = 'block';
+
+  var firstHashNode = document.querySelector([target.hash, 'a'].join(' '));
+  firstHashNode.dispatchEvent(new Event('click'));
+}
+
+function setIframe(target) {
+  _progressStart.timeScale(2).play();
+
+  var iframe = document.getElementById('iframe');
+  var scrolling = null;
+
+  if (target.dataset.scrolling) {
+    scrolling = target.dataset.scrolling;
+  } else if (iframe.dataset.scrolling) {
+    scrolling = iframe.dataset.scrolling;
+  }
+
+  iframe.scrolling = scrolling;
+  iframe.src = target.getAttribute('href');
+}
+
+function iframeHandler() {
+  var iframe = document.getElementById('iframe');
+  iframe.addEventListener('load', function () {
+    _progressStart.timeScale(2).tweenFromTo(0, 1, {
+      onComplete: function () {
+        _progressComplete.timeScale(2).tweenFromTo(0, 1);
+      },
+    });
+
+    var body = this.contentWindow.document.body;
+    this.width = body.scrollWidth;
+    this.height = body.scrollHeight;
+  });
+}
+
+function progressHandler() {
+  var div = document.getElementById('progress-bar');
+  div.style.overflow = 'hidden';
+  div.style.position = 'relative';
+  div.style.width = '100%';
+  div.style.height = '3px';
+  div.style.backgroundColor = 'transparent';
+
+  var span = document.createElement('span');
+  span.style.display = 'block';
+  span.style.position = 'absolute';
+  span.style.top = '0';
+  span.style.left = '0';
+  span.style.width = '0';
+  span.style.height = '100%';
+  span.style.backgroundColor = '#ba2d0b';
+  span.style.backgroundImage = 'linear-gradient(319deg, #ba2d0b 0%, #fe7f2d 37%, #ffbf46 100%)';
+
+  div.appendChild(span);
+
+  _progressStart.fromTo(span, {left: 0, width: 0}, {left: 0,width: '100%'});
+  _progressComplete.fromTo(span, {left: 0, width: '100%'}, {left: '200%', width: 0});
+}
   </script>
-
 </body>
 
 </html>
