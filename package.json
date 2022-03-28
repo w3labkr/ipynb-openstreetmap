@@ -1,0 +1,31 @@
+{
+    "name": "ipynb-openstreetmap",
+    "version": "1.0.0",
+    "main": "index.js",
+    "repository": "git@github.com:w3labkr/ipynb-openstreetmap.git",
+    "author": "W3LabKr <git@w3lab.kr>",
+    "license": "MIT",
+    "scripts": {
+        "clean:dir": "rm -rf node_modules",
+        "clean:cache": "yarn cache clean --force",
+        "clean": "yarn run clean:dir && yarn run clean:cache",
+        "build": "yarn run clean && yarn install"
+    },
+    "devDependencies": {
+        "eslint": "^8.2.0",
+        "eslint-config-prettier": "^8.3.0",
+        "eslint-plugin-import": "^2.25.3",
+        "eslint-plugin-prettier": "^4.0.0",
+        "prettier": "^2.4.1",
+        "prettier-eslint": "^13.0.0",
+        "prettier-stylelint": "^0.4.2",
+        "stylelint": "^14.1.0",
+        "stylelint-config-prettier": "^9.0.3",
+        "stylelint-config-rational-order": "^0.1.2",
+        "stylelint-config-recommended": "^6.0.0",
+        "stylelint-config-styled-components": "^0.1.1",
+        "stylelint-order": "^5.0.0",
+        "stylelint-prettier": "^2.0.0",
+        "stylelint-rational-order-plugin": "^1.0.2"
+    }
+}

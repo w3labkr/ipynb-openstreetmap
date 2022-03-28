@@ -1,0 +1,18 @@
+{
+    "html.format.enable": true,
+    "html.format.wrapLineLength": 0,
+    "html.format.unformatted": "wbr,pre,code,textarea,style,script",
+    "autoprefixer.options": {
+        "browsers": [
+            "> 0.5%",
+            "last 2 versions",
+            "Firefox ESR",
+            "not dead"
+        ]
+    },
+    "[html]": {
+        "editor.defaultFormatter": "HookyQR.beautify",
+        "editor.tabSize": 2,
+        "editor.formatOnSave": true
+    },
+}
