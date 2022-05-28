@@ -6,52 +6,26 @@
         "stylelint-prettier/recommended"
     ],
     "plugins": [
+        "stylelint-csstree-validator",
         "stylelint-order",
-        "stylelint-config-rational-order/plugin",
-        "stylelint-prettier"
+        "stylelint-config-rational-order/plugin"
+    ],
+    "ignoreFiles": [
+        "**/*.js",
+        "**/*.min.css"
     ],
     "rules": {
-        "prettier/prettier": true,
+        "csstree/validator": true,
+        "order/order": [],
         "order/properties-order": [],
         "plugin/rational-order": [
             true,
             {
                 "border-in-box-model": true,
-                "empty-line-between-groups": false
+                "empty-line-between-groups": true
             }
         ],
         "block-no-empty": null,
-        "rule-empty-line-before": "never",
-        "at-rule-empty-line-before": "always",
-        "property-case": "lower",
-        "function-name-case": "lower",
-        "media-feature-name-case": "lower",
-        "at-rule-name-case": "lower",
-        "value-keyword-case": "lower",
-        "indentation": 2,
-        "string-quotes": "single",
-        "color-hex-case": "lower",
-        "color-hex-length": "long",
-        "color-named": "never",
-        "selector-combinator-space-after": "always",
-        "selector-attribute-quotes": "always",
-        "declaration-block-trailing-semicolon": "always",
-        "number-leading-zero": "always",
-        "function-url-quotes": "always",
-        "font-weight-notation": null,
-        "font-family-no-missing-generic-family-keyword": null,
-        "comment-empty-line-before": null,
-        "selector-pseudo-element-colon-notation": "single",
-        "value-list-comma-newline-after": null,
-        "declaration-colon-newline-after": null,
-        "no-duplicate-selectors": null,
-        "no-descending-specificity": null,
-        "property-no-vendor-prefix": null,
-        "selector-no-vendor-prefix": null,
-        "at-rule-no-vendor-prefix": null,
-        "value-no-vendor-prefix": null,
-        "media-feature-name-no-vendor-prefix": null,
-        "selector-type-no-unknown": null,
-        "custom-property-no-missing-var-function": null
+        "property-no-vendor-prefix": null
     }
 }

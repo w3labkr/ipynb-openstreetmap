@@ -1,0 +1,15 @@
+# By default prettier ignores files in version control systems directories
+**/.git
+**/.svn
+**/.hg
+**/node_modules
+
+# Ignore all HTML files:
+*.html
+
+# Ignore minify files:
+*.min.css
+*.min.js
+
+# Ignore specific files:
+#...

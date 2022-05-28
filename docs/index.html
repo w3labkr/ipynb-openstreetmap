@@ -7,23 +7,12 @@
   <meta http-equiv="x-dns-prefetch-control" content="on">
   <meta name="viewport" content="width=1024">
 
-  <!--
-  DNS-prefetch is an attempt to resolve domain names before resources get requested.
-  This could be a file loaded later or link target a user tries to follow.
-
-  https://developer.mozilla.org/en-US/docs/Web/Performance/dns-prefetch
-  -->
-  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
-  <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
-  <link rel="preconnect" href="https://ajax.googleapis.com" crossorigin>
-  <link rel="dns-prefetch" href="https://ajax.googleapis.com">
-
-  <title>ipynb-openstreetmap</title>
+  <title>gh-docs</title>
 
   <!-- stylesheets -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/w3labkr/gh-docs@1.0.41/dist/css/sidebar-sidebar-content.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/w3labkr/gh-docs@1.2.4/dist/all.min.css" />
 
   <!-- Global site tag (gtag.js) - Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=UA-178473923-2"></script>
@@ -36,15 +25,33 @@
     gtag('js', new Date());
 
     gtag('config', 'UA-178473923-2');
+
   </script>
 
 </head>
 
-<body>
+<body class="has-sidebar has-sidebar--2">
+  <!--[if lte IE 9]>
+  <noscript>
+    <div style="padding:10px;">
+      <strong>This web page requires JavaScript to be enabled.</strong><br />
+      JavaScript is an object-oriented computer programming language
+      commonly used to create interactive effects within web browsers.
+    </div>
+  </noscript>
+  <div style="padding:10px;">
+    You are using an <strong>outdated</strong> browser.
+    Please <a class="alert-link" href="https://browsehappy.com/" target="_blank">upgrade your browser</a> to improve your
+    experience.
+  </div>
+  <![endif]-->
+
   <div id="page" class="site">
 
-    <header id="page-header" class="site-header">
-      <h1 class="site-title">W3LabKr</h1>
+    <header id="masthead" class="site-header">
+      <div class="site-branding">
+        <a class="site-title" href="index.html">W3LabKr</a>
+      </div>
       <nav id="page-nav" class="site-nav">
         <a href="https://github.com/w3labkr/ipynb-openstreetmap" target="_blank">
           <i class="bi bi-box-arrow-up-right"></i> Github
@@ -52,66 +59,82 @@
       </nav>
     </header>
 
-    <div id="page-content" class="site-content">
-      <aside id="secondary" class="site-sidebar sidebar-1">
-        <ul class="sidebar-list">
-          <li class="sidebar-item active"><a href="#networkx">networkx</a></li>
-          <li class="sidebar-item"><a href="#osmnx">osmnx</a></li>
-        </ul>
-      </aside>
+    <div id="content" class="site-content">
 
-      <aside id="tertiary" class="site-sidebar sidebar-2">
-        <ul id="networkx" class="sidebar-list active">
-          <li class="sidebar-item active"><a href="networkx/closeness_centrality.html">closeness_centrality</a></li>
-          <li class="sidebar-item"><a href="networkx/shortest_path.html">shortest_path</a></li>
-        </ul>
-        <ul id="osmnx" class="sidebar-list" style="display:none;">
-          <li class="sidebar-text">distance</li>
-          <li class="sidebar-item"><a href="osmnx/distance/k_shortest_paths.html">k_shortest_paths</a></li>
-          <li class="sidebar-item"><a href="osmnx/distance/nearest_nodes.html">nearest_nodes</a></li>
-          <li class="sidebar-item"><a href="osmnx/distance/shortest_path.html">shortest_path</a></li>
-          <li class="sidebar-text">folium</li>
-          <li class="sidebar-item"><a href="osmnx/folium/plot_graph_folium.html">plot_graph_folium</a></li>
-          <li class="sidebar-item"><a href="osmnx/folium/plot_route_folium.html">plot_route_folium</a></li>
-          <li class="sidebar-text">geocoder</li>
-          <li class="sidebar-item"><a href="osmnx/geocoder/geocode.html">geocode</a></li>
-          <li class="sidebar-item"><a href="osmnx/geocoder/geocode_to_gdf.html">geocode_to_gdf</a></li>
-          <li class="sidebar-text">graph</li>
-          <li class="sidebar-item"><a href="osmnx/graph/graph_from_address.html">graph_from_address</a></li>
-          <li class="sidebar-item"><a href="osmnx/graph/graph_from_bbox.html">graph_from_bbox</a></li>
-          <li class="sidebar-item"><a href="osmnx/graph/graph_from_place.html">graph_from_place</a></li>
-          <li class="sidebar-item"><a href="osmnx/graph/graph_from_point.html">graph_from_point</a></li>
-          <li class="sidebar-text">plot</li>
-          <li class="sidebar-item"><a href="osmnx/plot/get_edge_colors_by_attr.html">get_edge_colors_by_attr</a></li>
-          <li class="sidebar-item"><a href="osmnx/plot/plot_graph.html">plot_graph</a></li>
-          <li class="sidebar-item"><a href="osmnx/plot/plot_graph_route.html">plot_graph_route</a></li>
-          <li class="sidebar-item"><a href="osmnx/plot/plot_graph_routes.html">plot_graph_routes</a></li>
-          <li class="sidebar-text">projection</li>
-          <li class="sidebar-item"><a href="osmnx/projection/project_gdf.html">project_gdf</a></li>
-          <li class="sidebar-text">speed</li>
-          <li class="sidebar-item"><a href="osmnx/speed/add_edge_speeds.html">add_edge_speeds</a></li>
-          <li class="sidebar-item"><a href="osmnx/speed/add_edge_travel_times.html">add_edge_travel_times</a></li>
-          <li class="sidebar-text">stats</li>
-          <li class="sidebar-item"><a href="osmnx/stats/basic_stats.html">basic_stats</a></li>
-          <li class="sidebar-text">utils_graph</li>
-          <li class="sidebar-item"><a href="osmnx/utils_graph/graph_to_gdfs.html">graph_to_gdfs</a></li>
-        </ul>
-      </aside>
 
-      <main id="primary" class="site-main">
-        <div id="progress-bar"></div>
-        <iframe id="iframe" src="networkx/closeness_centrality.html" frameborder="0" scrolling="yes" style="width:100%;height:100%;"></iframe>
-      </main>
-    </div>
 
-    <footer class="site-footer"></footer>
+
+
+      <div id="main-content" class="main-area">
+        <div class="main-inner container-fluid">
+
+          <aside id="secondary" class="site-sidebar sidebar-1 sidebar-left">
+            <ul class="sidebar-list">
+              <li class="sidebar-text"></li>
+              <li class="sidebar-item active"><a href="#networkx">networkx</a></li>
+              <li class="sidebar-item"><a href="#osmnx">osmnx</a></li>
+            </ul>
+          </aside>
+
+          <aside id="tertiary" class="site-sidebar sidebar-2 sidebar-left">
+            <ul id="networkx" class="sidebar-list active">
+              <li class="sidebar-text"></li>
+              <li class="sidebar-item active"><a href="networkx/closeness_centrality.html">closeness_centrality</a></li>
+              <li class="sidebar-item"><a href="networkx/shortest_path.html">shortest_path</a></li>
+            </ul>
+            <ul id="osmnx" class="sidebar-list" style="display:none;">
+              <li class="sidebar-text">distance</li>
+              <li class="sidebar-item"><a href="osmnx/distance/k_shortest_paths.html">k_shortest_paths</a></li>
+              <li class="sidebar-item"><a href="osmnx/distance/nearest_nodes.html">nearest_nodes</a></li>
+              <li class="sidebar-item"><a href="osmnx/distance/shortest_path.html">shortest_path</a></li>
+              <li class="sidebar-text">folium</li>
+              <li class="sidebar-item"><a href="osmnx/folium/plot_graph_folium.html">plot_graph_folium</a></li>
+              <li class="sidebar-item"><a href="osmnx/folium/plot_route_folium.html">plot_route_folium</a></li>
+              <li class="sidebar-text">geocoder</li>
+              <li class="sidebar-item"><a href="osmnx/geocoder/geocode.html">geocode</a></li>
+              <li class="sidebar-item"><a href="osmnx/geocoder/geocode_to_gdf.html">geocode_to_gdf</a></li>
+              <li class="sidebar-text">graph</li>
+              <li class="sidebar-item"><a href="osmnx/graph/graph_from_address.html">graph_from_address</a></li>
+              <li class="sidebar-item"><a href="osmnx/graph/graph_from_bbox.html">graph_from_bbox</a></li>
+              <li class="sidebar-item"><a href="osmnx/graph/graph_from_place.html">graph_from_place</a></li>
+              <li class="sidebar-item"><a href="osmnx/graph/graph_from_point.html">graph_from_point</a></li>
+              <li class="sidebar-text">plot</li>
+              <li class="sidebar-item"><a href="osmnx/plot/get_edge_colors_by_attr.html">get_edge_colors_by_attr</a>
+              </li>
+              <li class="sidebar-item"><a href="osmnx/plot/plot_graph.html">plot_graph</a></li>
+              <li class="sidebar-item"><a href="osmnx/plot/plot_graph_route.html">plot_graph_route</a></li>
+              <li class="sidebar-item"><a href="osmnx/plot/plot_graph_routes.html">plot_graph_routes</a></li>
+              <li class="sidebar-text">projection</li>
+              <li class="sidebar-item"><a href="osmnx/projection/project_gdf.html">project_gdf</a></li>
+              <li class="sidebar-text">speed</li>
+              <li class="sidebar-item"><a href="osmnx/speed/add_edge_speeds.html">add_edge_speeds</a></li>
+              <li class="sidebar-item"><a href="osmnx/speed/add_edge_travel_times.html">add_edge_travel_times</a></li>
+              <li class="sidebar-text">stats</li>
+              <li class="sidebar-item"><a href="osmnx/stats/basic_stats.html">basic_stats</a></li>
+              <li class="sidebar-text">utils_graph</li>
+              <li class="sidebar-item"><a href="osmnx/utils_graph/graph_to_gdfs.html">graph_to_gdfs</a></li>
+            </ul>
+          </aside>
+
+          <main id="primary" class="site-main">
+            <div id="progress-bar"></div>
+            <iframe id="iframe" src="networkx/closeness_centrality.html" frameborder="0" scrolling="yes"
+              style="width:100%;height:100%;"></iframe>
+          </main>
+
+        </div><!-- .container -->
+      </div><!-- #main-content -->
+
+    </div><!-- #content -->
+
+    <footer id="colophon" class="site-footer"></footer>
   </div><!-- #site -->
 
   <!--
-  Web Font Loader gives you added control when using linked fonts via @font-face.
+Web Font Loader gives you added control when using linked fonts via @font-face.
 
-  https://github.com/typekit/webfontloader
-  -->
+https://github.com/typekit/webfontloader
+-->
   <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js"></script>
   <script>
     var WebFontConfig = {
@@ -121,11 +144,12 @@
       }
     };
     WebFont.load(WebFontConfig);
+
   </script>
 
   <!-- scripts -->
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.9.1/dist/gsap.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/gh/w3labkr/gh-docs@1.0.41/dist/js/sidebar-sidebar-content.js"></script>
+  <script src="https://cdn.jsdelivr.net/gh/w3labkr/gh-docs@1.2.4/dist/all.min.js"></script>
 </body>
 
 </html>
